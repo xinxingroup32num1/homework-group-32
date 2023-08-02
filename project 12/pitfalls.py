@@ -3,6 +3,7 @@ from gmssl import sm3, func
 import secrets
 from Crypto.Util import number
 import random
+import time
 
 A = 0xFFFFFFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000FFFFFFFFFFFFFFFC
 B = 0x28E9FA9E9D9F5E344D5A9E4BCF6509A7F39789F515AB8F92DDBCBD414D940E93
@@ -151,9 +152,12 @@ def generate_key():
 private_key, public_key = generate_key()
 m = 'yanxincai'
 ID = '2021'
+start=time.time()
 ZA = precomputation(ID, A, B, G_X, G_Y, public_key[0], public_key[1])
 sign = sign(private_key, m, ZA)
 (r, s) = sign
+end=time.time()
 print("签名为:", r, s)
 print("验证结果为：", verify(public_key, ID, m, sign))
 print("泄露k计算出d:", k_to_d(0xFFFFFFFEFFFFF, r, s))
+print("时间为",(end-start)*1000,"ms")
