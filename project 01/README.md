@@ -19,6 +19,5 @@
 
 <img width="596" alt="1" src="https://github.com/xinxingroup32num1/homework-group-32/assets/138662552/d67d7156-efc9-4beb-8d3c-728b893bb889">
 
-        
-        如上图所示，运行时间约为0.06s.
+如上图所示，运行时间约为0.06s.
        
