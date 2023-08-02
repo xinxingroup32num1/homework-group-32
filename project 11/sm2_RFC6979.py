@@ -2,6 +2,7 @@ from gmssl import sm3, func
 from hashlib import sha256
 import secrets
 from Crypto.Util import number
+import time
 
 A = 115792089210356248756420345214020892766250353991924191454421193933289684991996
 B = 18505919022281880113072981827955639221458448578012075254857346196103069175443
@@ -137,9 +138,12 @@ print("公钥：", public_key)
 print("私钥：", private_key)
 mes = "yanxincai"
 ID = '2021'
+start=time.time()
 Z_A = precomputation(ID, A, B, G_X, G_Y, public_key[0], public_key[1])
 # print(Z_A)
 sig = sign(private_key, mes, Z_A)
+end=time.time()
 print("签名：", sig)
 if verify(public_key, ID, mes, sig) == 1:
     print("验证通过")
+print("时间为",(end-start)*1000,"ms")
