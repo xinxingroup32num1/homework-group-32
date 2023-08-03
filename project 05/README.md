@@ -3,7 +3,7 @@
 
 ## 实验内容  
 
-按照RFC6962导入Merkle Tree
+按照RFC6962实现Merkle Tree
 
 ## 实验要求  
 
